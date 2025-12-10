@@ -1,0 +1,54 @@
+{
+  "id": "health_system",
+  "name": "Health System",
+  "version": "1.0.0",
+  "author": "UnityVault",
+  "category": "Core",
+  "priority": "P0",
+  "description": "Complete health management system with damage, healing, death events, armor, regeneration, and invincibility frames.",
+  "unityVersion": "2021.3+",
+  "dependencies": [],
+  "optionalDependencies": [
+    {
+      "id": "ui_healthbar",
+      "reason": "Visual health display"
+    },
+    {
+      "id": "vfx_damage_numbers",
+      "reason": "Floating damage text"
+    }
+  ],
+  "files": [
+    {
+      "name": "HealthSystem.cs",
+      "type": "MonoBehaviour",
+      "description": "Main health component - attach to any GameObject that needs health"
+    },
+    {
+      "name": "IDamageable.cs",
+      "type": "Interface",
+      "description": "Interface for damage-receiving objects"
+    }
+  ],
+  "namespace": "UnityVault.Core",
+  "tags": ["gameplay", "combat", "health", "damage", "essential"],
+  "features": [
+    "Max/current health management",
+    "Damage with armor and reduction",
+    "Healing with overheal option",
+    "Health regeneration",
+    "Invincibility frames",
+    "Death and revive system",
+    "C# events and UnityEvents",
+    "IDamageable interface"
+  ],
+  "setupInstructions": "1. Add HealthSystem component to your GameObject\n2. Configure max health, armor, and other settings in Inspector\n3. Subscribe to events (HealthChanged, DamageTaken, Death, etc.)\n4. Call TakeDamage() to apply damage, Heal() to restore health",
+  "exampleUsage": "// Apply damage\nvar health = GetComponent<HealthSystem>();\nfloat actualDamage = health.TakeDamage(25f);\n\n// Heal\nhealth.Heal(10f);\n\n// Subscribe to death\nhealth.Death += () => Debug.Log(\"Entity died!\");\n\n// Check health\nif (health.HealthPercentage < 0.3f) {\n    // Low health warning\n}",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-12-09",
+      "changes": ["Initial release"]
+    }
+  ]
+}
